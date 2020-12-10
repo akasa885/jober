@@ -16,3 +16,16 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+//Authentication Route
+Route::post('candidate/login', 'API\UserController@login');
+Route::post('candidate/register', 'API\UserController@register');
+
+//user setting route
+Route::prefix('setting')->name('candidate.setting.')->middleware('auth:api')->group(function () {
+  Route::post('/profile','API\UserSetting@getProfile');
+  Route::put('/profile/update','API\UserSetting@changeProfile');
+
+});
+Route::prefix('front-candidate')->('candidate.front.')->middleware('auth:api')->group(function(){
+
+});
