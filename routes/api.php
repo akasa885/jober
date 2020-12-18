@@ -26,6 +26,6 @@ Route::prefix('setting')->name('candidate.setting.')->middleware('auth:api')->gr
   Route::put('/profile/update','API\UserSetting@changeProfile');
 
 });
-Route::prefix('front-candidate')->('candidate.front.')->middleware('auth:api')->group(function(){
-
+Route::prefix('front-candidate')->name('candidate.front.')->middleware('auth:api')->group(function(){
+  Route::post('/searcg','API\FrontController@getProfile');
 });
