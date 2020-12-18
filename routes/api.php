@@ -20,12 +20,16 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('candidate/login', 'API\UserController@login');
 Route::post('candidate/register', 'API\UserController@register');
 
-//user setting route
+//User setting route
 Route::prefix('setting')->name('candidate.setting.')->middleware('auth:api')->group(function () {
   Route::post('/profile','API\UserSetting@getProfile');
   Route::put('/profile/update','API\UserSetting@changeProfile');
 
 });
 Route::prefix('front-candidate')->name('candidate.front.')->middleware('auth:api')->group(function(){
+<<<<<<< HEAD
   Route::post('/searcg','API\FrontController@getProfile');
+=======
+
+>>>>>>> feb3ac5a84783fbd65586ff7666b1a5a90700720
 });
