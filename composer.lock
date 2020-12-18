@@ -2509,6 +2509,7 @@
         },
         {
             "name": "monolog/monolog",
+<<<<<<< HEAD
             "version": "1.26.0",
             "source": {
                 "type": "git",
@@ -2519,6 +2520,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/Seldaek/monolog/zipball/2209ddd84e7ef1256b7af205d0717fb62cfc9c33",
                 "reference": "2209ddd84e7ef1256b7af205d0717fb62cfc9c33",
+=======
+            "version": "1.25.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Seldaek/monolog.git",
+                "reference": "1817faadd1846cd08be9a49e905dc68823bc38c0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/1817faadd1846cd08be9a49e905dc68823bc38c0",
+                "reference": "1817faadd1846cd08be9a49e905dc68823bc38c0",
+>>>>>>> 3c560d4afbd2965191beef58989cea1f5d9d7027
                 "shasum": ""
             },
             "require": {
@@ -2534,7 +2547,11 @@
                 "graylog2/gelf-php": "~1.0",
                 "php-amqplib/php-amqplib": "~2.4",
                 "php-console/php-console": "^3.1.3",
+<<<<<<< HEAD
                 "phpstan/phpstan": "^0.12.59",
+=======
+                "php-parallel-lint/php-parallel-lint": "^1.0",
+>>>>>>> 3c560d4afbd2965191beef58989cea1f5d9d7027
                 "phpunit/phpunit": "~4.5",
                 "ruflin/elastica": ">=0.90 <3.0",
                 "sentry/sentry": "^0.13",
@@ -2554,6 +2571,14 @@
                 "sentry/sentry": "Allow sending log messages to a Sentry server"
             },
             "type": "library",
+<<<<<<< HEAD
+=======
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+>>>>>>> 3c560d4afbd2965191beef58989cea1f5d9d7027
             "autoload": {
                 "psr-4": {
                     "Monolog\\": "src/Monolog"
@@ -2579,7 +2604,11 @@
             ],
             "support": {
                 "issues": "https://github.com/Seldaek/monolog/issues",
+<<<<<<< HEAD
                 "source": "https://github.com/Seldaek/monolog/tree/1.26.0"
+=======
+                "source": "https://github.com/Seldaek/monolog/tree/1.25.5"
+>>>>>>> 3c560d4afbd2965191beef58989cea1f5d9d7027
             },
             "funding": [
                 {
@@ -2591,7 +2620,11 @@
                     "type": "tidelift"
                 }
             ],
+<<<<<<< HEAD
             "time": "2020-12-14T12:56:38+00:00"
+=======
+            "time": "2020-07-23T08:35:51+00:00"
+>>>>>>> 3c560d4afbd2965191beef58989cea1f5d9d7027
         },
         {
             "name": "myclabs/php-enum",
@@ -2975,6 +3008,7 @@
         },
         {
             "name": "phpseclib/phpseclib",
+<<<<<<< HEAD
             "version": "2.0.30",
             "source": {
                 "type": "git",
@@ -2985,6 +3019,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/136b9ca7eebef78be14abf90d65c5e57b6bc5d36",
                 "reference": "136b9ca7eebef78be14abf90d65c5e57b6bc5d36",
+=======
+            "version": "2.0.29",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpseclib/phpseclib.git",
+                "reference": "497856a8d997f640b4a516062f84228a772a48a8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/497856a8d997f640b4a516062f84228a772a48a8",
+                "reference": "497856a8d997f640b4a516062f84228a772a48a8",
+>>>>>>> 3c560d4afbd2965191beef58989cea1f5d9d7027
                 "shasum": ""
             },
             "require": {
@@ -2992,7 +3038,11 @@
             },
             "require-dev": {
                 "phing/phing": "~2.7",
+<<<<<<< HEAD
                 "phpunit/phpunit": "^4.8.35|^5.7|^6.0|^9.4",
+=======
+                "phpunit/phpunit": "^4.8.35|^5.7|^6.0",
+>>>>>>> 3c560d4afbd2965191beef58989cea1f5d9d7027
                 "squizlabs/php_codesniffer": "~2.0"
             },
             "suggest": {
@@ -3064,7 +3114,11 @@
             ],
             "support": {
                 "issues": "https://github.com/phpseclib/phpseclib/issues",
+<<<<<<< HEAD
                 "source": "https://github.com/phpseclib/phpseclib/tree/2.0.30"
+=======
+                "source": "https://github.com/phpseclib/phpseclib/tree/2.0"
+>>>>>>> 3c560d4afbd2965191beef58989cea1f5d9d7027
             },
             "funding": [
                 {
@@ -3080,7 +3134,11 @@
                     "type": "tidelift"
                 }
             ],
+<<<<<<< HEAD
             "time": "2020-12-17T05:42:04+00:00"
+=======
+            "time": "2020-09-08T04:24:43+00:00"
+>>>>>>> 3c560d4afbd2965191beef58989cea1f5d9d7027
         },
         {
             "name": "psr/container",
@@ -6609,6 +6667,7 @@
         },
         {
             "name": "fzaninotto/faker",
+<<<<<<< HEAD
             "version": "v1.9.2",
             "source": {
                 "type": "git",
@@ -6619,6 +6678,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/848d8125239d7dbf8ab25cb7f054f1a630e68c2e",
                 "reference": "848d8125239d7dbf8ab25cb7f054f1a630e68c2e",
+=======
+            "version": "v1.9.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fzaninotto/Faker.git",
+                "reference": "fc10d778e4b84d5bd315dad194661e091d307c6f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/fc10d778e4b84d5bd315dad194661e091d307c6f",
+                "reference": "fc10d778e4b84d5bd315dad194661e091d307c6f",
+>>>>>>> 3c560d4afbd2965191beef58989cea1f5d9d7027
                 "shasum": ""
             },
             "require": {
@@ -6657,10 +6728,17 @@
             ],
             "support": {
                 "issues": "https://github.com/fzaninotto/Faker/issues",
+<<<<<<< HEAD
                 "source": "https://github.com/fzaninotto/Faker/tree/v1.9.2"
             },
             "abandoned": true,
             "time": "2020-12-11T09:56:16+00:00"
+=======
+                "source": "https://github.com/fzaninotto/Faker/tree/v1.9.1"
+            },
+            "abandoned": true,
+            "time": "2019-12-12T13:22:17+00:00"
+>>>>>>> 3c560d4afbd2965191beef58989cea1f5d9d7027
         },
         {
             "name": "hamcrest/hamcrest-php",

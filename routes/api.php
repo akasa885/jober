@@ -20,12 +20,20 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('candidate/login', 'API\UserController@login');
 Route::post('candidate/register', 'API\UserController@register');
 
+<<<<<<< HEAD
 //User setting route
+=======
+//user setting route
+>>>>>>> 3c560d4afbd2965191beef58989cea1f5d9d7027
 Route::prefix('setting')->name('candidate.setting.')->middleware('auth:api')->group(function () {
   Route::post('/profile','API\UserSetting@getProfile');
   Route::put('/profile/update','API\UserSetting@changeProfile');
 
 });
+<<<<<<< HEAD
 Route::prefix('front-candidate')->name('candidate.front.')->middleware('auth:api')->group(function(){
+=======
+Route::prefix('front-candidate')->('candidate.front.')->middleware('auth:api')->group(function(){
+>>>>>>> 3c560d4afbd2965191beef58989cea1f5d9d7027
 
 });

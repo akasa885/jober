@@ -18,6 +18,7 @@ class UserController extends Controller
   
     public $successStatus = 200;
 
+<<<<<<< HEAD
     // USER LOGIN
     public function login(){
         if(Auth::attempt(['email' => request('email'), 'password' => request('password')])){
@@ -25,12 +26,26 @@ class UserController extends Controller
             $success['token'] =  $user->createToken('CandidateLogin')->accessToken;
             return response()->json(['success' => $success], $this->successStatus);
         }else{
+=======
+    public function login(){
+        if(Auth::attempt(['email' => request('email'), 'password' => request('password')])){
+            $user = Auth::user();
+            $success['token'] =  $user->createToken('nApp')->accessToken;
+            return response()->json(['success' => $success], $this->successStatus);
+        }
+        else{
+>>>>>>> 3c560d4afbd2965191beef58989cea1f5d9d7027
             return response()->json(['error'=>'Unauthorised'], 401);
         }
     }
 
+<<<<<<< HEAD
     // USER REGISTER
     public function register(Request $request){
+=======
+    public function register(Request $request)
+    {
+>>>>>>> 3c560d4afbd2965191beef58989cea1f5d9d7027
         $validator = Validator::make($request->all(), [
             'first_name' => 'required',
             'last_name' => 'required',
@@ -38,17 +53,26 @@ class UserController extends Controller
             'password' => 'required|confirmed|min:6',
             'password_confirmation' => 'required|same:password',
         ]);
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3c560d4afbd2965191beef58989cea1f5d9d7027
         if ($validator->fails()) {
             return response()->json(['valid error'=>$validator->errors()], 401);
         }
         $user = new User();
         $user->first_name = $request->input('first_name');
+<<<<<<< HEAD
+=======
+        // $user->middle_name = $request->input('middle_name');
+>>>>>>> 3c560d4afbd2965191beef58989cea1f5d9d7027
         $user->last_name = $request->input('last_name');
         $user->email = $request->input('email');
         $user->password = bcrypt($request->input('password'));
         $user->is_active = 0;
         $user->verified = 0;
         $user->save();
+<<<<<<< HEAD
         $user->name = $user->getName();
         $user->update();
         $success['token'] =  $user->createToken('CandidateRegister')->accessToken;
@@ -63,6 +87,22 @@ class UserController extends Controller
         // UserVerification::generate($user);
         // UserVerification::send($user, 'User Verification', config('mail.recieve_to.address'), config('mail.recieve_to.name'));
         // ==============================================================================================
+=======
+        /**************************/
+        $user->name = $user->getName();
+        $user->update();
+        /**************************/
+        // $input = $request->all();
+        // $input['password'] = bcrypt($input['password']);
+        // $user = User::create($input);
+        $success['token'] =  $user->createToken('nApp')->accessToken;
+        $success['name'] =  $user->name;
+        event(new Registered($user));
+        event(new UserRegistered($user));
+        $this->guard()->login($user);
+        UserVerification::generate($user);
+        UserVerification::send($user, 'User Verification', config('mail.recieve_to.address'), config('mail.recieve_to.name'));
+>>>>>>> 3c560d4afbd2965191beef58989cea1f5d9d7027
 
         return response()->json(['success'=>$success], $this->successStatus);
     }
