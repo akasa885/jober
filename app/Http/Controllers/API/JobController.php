@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers\API;
 
+
+//Model Auth
 use App\Job;
 use App\JobApply;
+use App\FavouriteJob;
+
+//Provider setting
 use Auth;
 use Validator;
 use Illuminate\Http\Request;
@@ -35,6 +40,7 @@ class JobController extends Controller
       if ($validator->fails()) {
           return response()->json(['valid error'=>$validator->errors()], 401);
       }
+
       $id = Auth::user()->id;
       $job = Job::where('slug', 'like', $request->job_slug)->first();
 
@@ -50,15 +56,31 @@ class JobController extends Controller
       return response()->json(['success'=>$success], 201);
     }
 
-    // CANDIDATE LISTING JOB APLICANT
-    public function viewJobList()
+    // CANDIDATE FAVORITE THE JOB
+    public function favoritingJob(Request $request)
     {
-      $id = Auth::user()->id;
-      return response()->json(['success'=>$success], $this->successStatus);
+
+      $validator = Validator::make($request->all(), [
+          'job_slug'=>'required',
+        ]);
+      if ($validator->fails()) {
+          return response()->json(['valid error'=>$validator->errors()], 401);
+      }
+
+      $data['job_slug'] = $request->job_slug;
+      $data['user_id'] = Auth::user()->id;
+      $data_save = FavouriteJob::create($data);
+
+      $success = 'Job has been added in favorites list';
+      return response()->json(['success'=>$success], 201);
     }
 
-    public function typename()
+    //VIEWING APLLICANTS JOB
+    public function viewAplliedJob(Request $request)
     {
-      // code...
+      $myAppliedJobIds = Auth::user()->getAppliedJobIdsArray();
+  		$jobs = Job::whereIn('id', $myAppliedJobIds)-get();
+
+      return response()->json(['success'=>$jobs], $this->successStatus);
     }
 }
