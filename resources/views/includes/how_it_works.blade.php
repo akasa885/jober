@@ -37,7 +37,7 @@
 
 			<li class="col-md-4 col-sm-4">
 
-				<div class="iconcircle"><i class="fa fa-black-tie" aria-hidden="true"></i>
+				<div class="iconcircle"><i class="fab fa-black-tie" aria-hidden="true"></i>
 				</div>
 
 				<h4>{{__('Search Desired Job')}}</h4>

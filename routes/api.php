@@ -20,16 +20,23 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('candidate/login', 'API\UserController@login');
 Route::post('candidate/register', 'API\UserController@register');
 
+//Check authorization
+Route::post('/details','API\UserController@details')->middleware('auth:api');
+
 //User setting route
 Route::prefix('setting')->name('candidate.setting.')->middleware('auth:api')->group(function () {
   Route::post('/profile','API\UserSetting@getProfile');
   Route::put('/profile/update','API\UserSetting@changeProfile');
 
 });
-Route::prefix('front-candidate')->name('candidate.front.')->middleware('auth:api')->group(function(){
-<<<<<<< HEAD
-  Route::post('/searcg','API\FrontController@getProfile');
-=======
 
->>>>>>> feb3ac5a84783fbd65586ff7666b1a5a90700720
+// Front main route
+Route::prefix('front-candidate')->name('c.front.')->middleware('auth:api')->group(function(){
+  Route::post('/search','API\FrontController@search');
+});
+
+// Job activity
+Route::prefix('candidate-job')->name('c.job.')->middleware('auth:api')->group(function(){
+  Route::post('/apply-job','API\JobController@apply')->name('apply');
+  Route::post('/add-favorite','API\JobController@favoritingJob')->name('add_fav');
 });
