@@ -40,7 +40,7 @@ class JobController extends Controller
       if ($validator->fails()) {
           return response()->json(['valid error'=>$validator->errors()], 401);
       }
-
+      
       $id = Auth::user()->id;
       $job = Job::where('slug', 'like', $request->job_slug)->first();
 
