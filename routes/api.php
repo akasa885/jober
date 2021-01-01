@@ -13,20 +13,18 @@ use Illuminate\Http\Request;
   |
  */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+ 
+
+
+
 //Authentication Route
 Route::post('candidate/login', 'API\UserController@login');
 Route::post('candidate/register', 'API\UserController@register');
 
-//Check authorization
-Route::post('/details','API\UserController@details')->middleware('auth:api');
-
-//User setting route
-Route::prefix('setting')->name('candidate.setting.')->middleware('auth:api')->group(function () {
-  Route::post('/profile','API\UserSetting@getProfile');
-  Route::put('/profile/update','API\UserSetting@changeProfile');
+//User Profile route
+Route::prefix('user')->name('candidate.setting.')->middleware('auth:api')->group(function () {
+  Route::get('/profile','API\UserController@details'); // User Detail
+  Route::put('/profile/update','API\UserController@updateProfile'); // Update Profile
 
 });
 
