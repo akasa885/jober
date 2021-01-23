@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
   |
  */
 
- 
+
 
 
 
@@ -30,7 +30,7 @@ Route::prefix('user')->name('candidate.setting.')->middleware('auth:api')->group
 
 // Front main route
 Route::prefix('front-candidate')->name('c.front.')->middleware('auth:api')->group(function(){
-  Route::post('/search','API\FrontController@search');
+  Route::post('/search','API\FrontController@JobbySearch');
 });
 
 // Job activity
