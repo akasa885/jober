@@ -38,3 +38,6 @@ Route::prefix('candidate-job')->name('c.job.')->middleware('auth:api')->group(fu
   Route::post('/apply-job','API\JobController@apply')->name('apply');
   Route::post('/add-favorite','API\JobController@favoritingJob')->name('add_fav');
 });
+// Image
+Route::get('/user/image','API\ContentController@userImage')->name('user.image');
+Route::get('/company/image','API\ContentController@companyImage')->name('company.image');
