@@ -25,7 +25,7 @@ Route::post('candidate/register', 'API\UserController@register');
 Route::prefix('user')->name('candidate.setting.')->middleware('auth:api')->group(function () {
   Route::get('/profile','API\UserController@details'); // User Detail
   Route::put('/profile/update','API\UserController@updateProfile'); // Update Profile
-  Route::post('/cv/upload','API\ContentController@cv_uploader');
+  Route::post('/cv/upload/{user_id}','API\ContentController@cv_uploader');
 });
 
 // Front main route

@@ -5,7 +5,8 @@ namespace App\Http\Controllers\API;
 //Model Auth
 use App\Company;
 use App\User;
-use App\FavouriteJob;
+use App\ProfileCv;
+use App\Traits\ProfileCvsTrait;
 
 //Provider setting
 use Auth;
@@ -39,5 +40,22 @@ class ContentController extends Controller
       }
       // return response()->json(['data'=>$logo]);
 
-    }    
+    }
+
+    //CV UPLOADER
+    public function cv_uploader(Request $request,$user_id)
+    {
+      $validator = Validator::make($request->all(), [
+          "title" => "required",
+          "is_default" => "required",
+          "cv_file" => $user_id.'mimes:doc,docx,docm,zip,pdf',
+      ]);
+      if ($validator->fails()) {
+          return response()->json(['valid error'=>$validator->errors()], 401);
+      }
+      $profileCv = new ProfileCv();
+      $profileCv = $this->apistoreProvileCv($profileCv, $request, $user_id);
+  		$profileCv->save();
+      return response()->json(['success'=> 'Success upload your cv'], 201);
+    }
 }
