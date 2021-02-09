@@ -43,7 +43,7 @@ class ContentController extends Controller
     }
 
     //CV UPLOADER
-    public function cv_uploader(Request $request,$user_id)
+    public function cv_uploader(Request $request, $user_id)
     {
       $validator = Validator::make($request->all(), [
           "title" => "required",

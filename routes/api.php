@@ -21,11 +21,11 @@ use Illuminate\Http\Request;
 Route::post('candidate/login', 'API\UserController@login');
 Route::post('candidate/register', 'API\UserController@register');
 
-//User Profile route
+//User Profile route ================================================================================ ( WITH BEARER TOKENS AUTHORIZATIONS )
 Route::prefix('user')->name('candidate.setting.')->middleware('auth:api')->group(function () {
   Route::get('/profile','API\UserController@details'); // User Detail
   Route::put('/profile/update','API\UserController@updateProfile'); // Update Profile
-  Route::post('/cv/upload/{user_id}','API\ContentController@cv_uploader');
+  Route::post('/cv/upload/{user_id}','API\ContentController@cv_uploader'); //upload Resume
 });
 
 // Front main route
